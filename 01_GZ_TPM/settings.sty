@@ -1,0 +1,42 @@
+\usepackage{xcolor}
+\definecolor{用語色}{HTML}{d94876}
+
+
+\usepackage{unicode-math}
+\setsansfont{nimbussans}
+\DeclareEmphSequence{\sffamily}
+\NewDocumentCommand{\term}{m !D(){}}{\textcolor{用語色}{\emph{#1}\IfBlankF{#2}{（#2）}}}
+
+
+\NewDocumentCommand{\回数}{m}{\NewDocumentCommand{\@回数}{}{#1}}
+\NewDocumentCommand{\発表日}{m}{\NewDocumentCommand{\@発表日}{}{#1}}
+\NewDocumentCommand{\範囲}{m}{\NewDocumentCommand{\@範囲}{}{#1}}
+
+\NewDocumentCommand{\ヘッダー}{}{
+  \begin{center}
+    \sffamily
+    読書会 --- Gallagher, S. \& Zahavi, D. \textit{The Phenomenological Mind}\par
+    \LARGE
+    レジュメ\quad 第\@回数 回
+  \end{center}
+
+  \vspace{\baselineskip}
+
+  \noindent
+  発表者：田中 英矩 \hfill 発表日：\@発表日
+
+  \vspace{\baselineskip}
+
+  \hrule
+
+  \begin{description}
+    \item[範囲] \@範囲
+  \end{description}
+
+  \hrule
+
+  \vspace{\baselineskip}
+}
+
+
+\NewDocumentCommand{\where}{m}{\textsuperscript{(#1)}}
